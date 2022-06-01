@@ -18,6 +18,6 @@ public class MyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update Running");
+        
     }
 }
