@@ -22,6 +22,9 @@ public class MyScript : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Jump");
         float z = Input.GetAxis("Vertical");
+        movement = new Vector3(x, y, z);
     }
+
+    
 
 }
