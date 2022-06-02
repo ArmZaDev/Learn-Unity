@@ -7,6 +7,13 @@ public class PickItem : MonoBehaviour
 {
     private int score = 0;
     public Text scoreText;
+    private AudioSource audioSource;
+    private AudioClip audioClip;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider target)
     {
@@ -20,6 +27,8 @@ public class PickItem : MonoBehaviour
 
             scoreText.text = "Item x " + score.ToString();
             Debug.Log(score);
+
+            audioSource.PlayOneShot(audioClip);
         }
     }
 }
