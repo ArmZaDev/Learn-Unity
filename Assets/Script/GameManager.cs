@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
             {
                 //หยุดเวลา
                 Time.timeScale = 0;
+                pauseUI.SetActive(true);  
             }
             else
             {
                 //เล่นเกมต่อ
                 Time.timeScale = 1;
+                pauseUI.SetActive(false);  
             }
         }
     }
