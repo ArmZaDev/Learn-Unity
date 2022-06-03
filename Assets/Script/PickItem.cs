@@ -9,6 +9,7 @@ public class PickItem : MonoBehaviour
     public Text scoreText;
     private AudioSource audioSource;
     private AudioClip itemSound;
+    private AudioClip completeSound;
 
 
     //ตัวแปรนับจำนวน Item
@@ -23,17 +24,22 @@ public class PickItem : MonoBehaviour
     private void OnTriggerEnter(Collider target)
     {
         if (target.gameObject.tag.Equals("Item"))
-        {
-            Debug.Log("ชนกับ Item");
-
+        {          
             //อยากให้ลบ Item ออกจากแมพ
             Destroy(target.gameObject);
             score += 1;
 
             scoreText.text = "Item = " + score.ToString() + "/" + itemCount.ToString();
-            Debug.Log(score);
+            if (score >= itemCount)
+            {
+                audioSource.PlayOneShot(completeSound);
+            }
+            else
+            {
+                audioSource.PlayOneShot(itemSound);
+            }
 
-            audioSource.PlayOneShot(itemSound);
+            
         }
     }
 }
